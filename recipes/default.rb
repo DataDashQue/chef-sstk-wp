@@ -17,7 +17,11 @@ include_recipe "build-essential"
 include_recipe "env_vars"
 include_recipe "iptables::disabled"
 include_recipe "nginx"
-include_recipe "mysql::server"
+
+mysql_service 'default' do
+  server_root_password node['mysql']['server_root_password']
+  action :create
+end
 
 file '/etc/hostname' do
   content "sstk-wp\n"
