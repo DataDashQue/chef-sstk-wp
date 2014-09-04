@@ -14,10 +14,7 @@ service 'ntpd' do
 end
 
 include_recipe "build-essential"
-
-service 'postfix' do
-  action :stop
-end
+include_recipe "env_vars"
 
 file '/etc/hostname' do
   content "sstk-wp\n"
@@ -30,7 +27,7 @@ bash "set hostname to sstk-wp" do
 end
 
 file '/etc/hosts' do
-  content "127.0.0.1 localhost sstk-wp\n"
+  content "127.0.0.1 localhost\n192.168.33.10 sstk-wp\n"
 end
 
 
