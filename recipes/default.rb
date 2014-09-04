@@ -15,6 +15,7 @@ end
 
 include_recipe "build-essential"
 include_recipe "env_vars"
+include_recipe "iptables::disabled"
 include_recipe "nginx"
 include_recipe "mysql::server"
 
@@ -28,8 +29,9 @@ bash "set hostname to sstk-wp" do
   EOH
 end
 
+### TODO: get rid of this, it's only valid in dev env (vagrant)
 file '/etc/hosts' do
-  content "127.0.0.1 localhost\n192.168.33.10 sstk-wp\n"
+  content "127.0.0.1 localhost\n192.168.0.100 sstk-wp\n"
 end
 
 
