@@ -8,3 +8,5 @@ version          '0.1.0'
 
 depends 'build-essential'
 depends 'env_vars'
+depends 'nginx'
+depends 'mysql'

@@ -15,6 +15,8 @@ end
 
 include_recipe "build-essential"
 include_recipe "env_vars"
+include_recipe "nginx"
+include_recipe "mysql::server"
 
 file '/etc/hostname' do
   content "sstk-wp\n"
