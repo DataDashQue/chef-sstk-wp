@@ -6,6 +6,8 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+hostname = "sstk-wp"
+
 package 'ntp'
 
 service 'ntpd' do
@@ -16,7 +18,48 @@ end
 include_recipe "build-essential"
 include_recipe "env_vars"
 include_recipe "iptables::disabled"
-include_recipe "nginx"
+include_recipe "nginx::source"
+
+[
+  "#{node['nginx']['dir']}/vhost.d",
+  "#{node['nginx']['log_dir']}/vhost",
+  "/var/www/wp"
+].each do |dir|
+  directory "#{dir}" do
+  owner node['nginx']['user']
+  group node['nginx']['group']
+  mode 0755
+  recursive true
+  action :create
+  end
+end
+
+template "#{node['nginx']['dir']}/nginx.conf" do
+  source "nginx.conf.erb"
+  owner "root"
+  group "root"
+  mode 0644
+  action :create
+  notifies :reload, 'service[nginx]'
+end
+
+template "#{node['nginx']['dir']}/vhost.d/#{hostname}.conf" do
+  source "#{hostname}.conf.erb"
+  owner "root"
+  group "root"
+  mode 0644
+  action :create
+  notifies :reload, 'service[nginx]'
+end
+
+cookbook_file "/var/www/wp/index.html" do
+  source "index.html"
+  owner node['nginx']['user']
+  group node['nginx']['group']
+  mode 0644
+  action :create
+end
+
 
 mysql_service 'default' do
   server_root_password node['mysql']['server_root_password']
@@ -24,18 +67,12 @@ mysql_service 'default' do
 end
 
 file '/etc/hostname' do
-  content "sstk-wp\n"
+  content "#{hostname}\n"
 end
 
-bash "set hostname to sstk-wp" do
+bash "set hostname to #{hostname}" do
   code <<-EOH
   hostname --file /etc/hostname
   EOH
 end
-
-### TODO: get rid of this, it's only valid in dev env (vagrant)
-file '/etc/hosts' do
-  content "127.0.0.1 localhost\n192.168.0.100 sstk-wp\n"
-end
-
 

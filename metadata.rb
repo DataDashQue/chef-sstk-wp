@@ -1,5 +1,5 @@
 name             'sstk-wp'
-maintainer       'Adam Staudt'
+maintainer       'Shutterstock'
 maintainer_email 'astaudt@shutterstock.com'
 license          'All rights reserved'
 description      'Installs/Configures sstk-wp'
