@@ -28,5 +28,7 @@ default['wordpress']['allow_multisite'] = true
 default['wordpress']['server_name'] = 'blog.shutterstock.com'
 default['wordpress']['fpm_port'] = '9001'
 
-# php-fpm attributes
-default['php-fpm']['pools'] = false
+# postfix attributes
+default['postfix']['main']['inet_interfaces'] = 'loopback-only'
+    # probably need to change this!
+default['postfix']['main']['relayhost'] = 'localhost'

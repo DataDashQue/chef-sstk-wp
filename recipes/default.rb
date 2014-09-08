@@ -14,6 +14,7 @@ include_recipe "build-essential"
 include_recipe "env_vars"
 include_recipe "iptables::disabled"
 include_recipe "wordpress::nginx"
+include_recipe "postfix"
 
 template "#{node['nginx']['dir']}/nginx.conf" do
   source "nginx.conf.erb"
