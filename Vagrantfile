@@ -24,16 +24,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # 'vagrant provision' in the same dir as this Vagrantfile to kick off
   # a chef-solo run in the VM.
   config.vm.provision :chef_solo do |chef|
-    chef.json = {
-      mysql: {
-        server_root_password: 'rootpass',
-        server_debian_password: 'debpass',
-        server_repl_password: 'replpass'
-      }
-    }
-
     chef.run_list = [
-        "recipe[sstk-wp::default]"
+      "recipe[sstk-wp::default]"
     ]
   end
 end
