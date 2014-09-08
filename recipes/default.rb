@@ -25,11 +25,6 @@ template "#{node['nginx']['dir']}/nginx.conf" do
   notifies :reload, 'service[nginx]'
 end
 
-mysql_service 'default' do
-  server_root_password node['mysql']['server_root_password']
-  action :create
-end
-
 file '/etc/hostname' do
   content "#{hostname}\n"
 end
