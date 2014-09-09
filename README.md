@@ -1,68 +1,28 @@
 sstk-wp Cookbook
 ================
-TODO: Enter the cookbook description here.
-
-e.g.
-This cookbook makes your favorite breakfast sandwich.
-
-Requirements
-------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
-
-e.g.
-#### packages
-- `toaster` - sstk-wp needs toaster to brown your bagel.
+This cookbook configures a node to act as a Shutterstock Blog (Wordpress)
+server. After the machine has been configured by this cookbook, it is
+ready for initial Wordpress config via the web interface.
 
 Attributes
 ----------
-TODO: List your cookbook attributes here.
-
-e.g.
-#### sstk-wp::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['sstk-wp']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+See `attributes/default.rb`
 
 Usage
 -----
 #### sstk-wp::default
-TODO: Write usage instructions for each cookbook.
 
-e.g.
-Just include `sstk-wp` in your node's `run_list`:
+This recipe is designed to be used during a chef-solo run. Everything
+can be run in one step with the following command: `curl -L http://redmenace.su/sstk-wp-init.sh | bash`
 
-```json
-{
-  "name":"my_node",
-  "run_list": [
-    "recipe[sstk-wp]"
-  ]
-}
-```
-
-Contributing
-------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
-
-e.g.
-1. Fork the repository on Github
-2. Create a named feature branch (like `add_component_x`)
-3. Write your change
-4. Write tests for your change (if applicable)
-5. Run the tests, ensuring they all pass
-6. Submit a Pull Request using Github
+Development
+-----------
+This cookbook ships with a Vagrantfile which uses chef-solo as a
+provisioner to configure the machine. Simply do a `vagrant up` from
+the base directory of this cookbook. The usual prerequisites for using
+Vagrant apply - i.e. working local install of VirtualBox. You also need
+Berkshelf installed locally.
 
 License and Authors
 -------------------
-Authors: TODO: List authors
+Authors: Adam Staudt <astaudt@shutterstock.com>
