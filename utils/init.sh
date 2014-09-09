@@ -8,4 +8,18 @@ SSTK_WP_COOKBOOK_URL="https://github.shuttercorp.net/astaudt/chef-sstk-wp.git"
 rpm -Uvh $CHEFDK_URL
 yum install -y git
 mkdir -p /root/chef /root/cookbooks
+
+cat << EOF > /root/chef/solo.json
+{
+  "run_list": [ "recipe[sstk-wp::default]" ]
+}
+EOF
+
+cat << EOF > /root/chef/solo.rb
+root = File.absolute_path(File.dirname(__FILE__))
+
+file_cache_path root
+cookbook_path root + '/cookbooks'
+EOF
+
 (cd /root/cookbooks && rm -rf chef-sstk-wp && git clone $SSTK_WP_COOKBOOK_URL && chef-sstk-wp/utils/run_chef.sh)
