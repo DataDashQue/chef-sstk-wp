@@ -7,5 +7,5 @@ SSTK_WP_COOKBOOK_URL="https://github.shuttercorp.net/astaudt/chef-sstk-wp.git"
 
 rpm -Uvh $CHEFDK_URL
 yum install -y git
-mkdir /root/chef /root/cookbooks
-(cd /root/cookbooks && git clone $SSTK_WP_COOKBOOK_URL && chef-sstk-wp/utils/run_chef.sh)
+mkdir -p /root/chef /root/cookbooks
+(cd /root/cookbooks && rm -rf chef-sstk-wp && git clone $SSTK_WP_COOKBOOK_URL && chef-sstk-wp/utils/run_chef.sh)
