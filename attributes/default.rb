@@ -21,8 +21,6 @@ default['nginx']['client_max_body_size'] = '100m'
 
 # wordpress attributes
 default['wordpress']['version'] = 'latest'
-default['wordpress']['db']['user'] = "sstkdbadmin"
-default['wordpress']['db']['pass'] = 'C>+{9&TYuVme3HHxLpxa+R'
 default['wordpress']['install']['user'] = node['nginx']['user']
 default['wordpress']['install']['group'] = node['nginx']['group']
 default['wordpress']['allow_multisite'] = true
