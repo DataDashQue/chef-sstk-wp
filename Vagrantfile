@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.require_version ">= 1.5.0"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.hostname = "sstk-wp-berkshelf"
+  config.vm.hostname = "sstk-wp-dev"
   config.omnibus.chef_version = :latest
   config.vm.box = "chef/centos-6.5"
 
@@ -24,6 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # 'vagrant provision' in the same dir as this Vagrantfile to kick off
   # a chef-solo run in the VM.
   config.vm.provision :chef_solo do |chef|
+    chef.data_bags_path = "data_bags"
     chef.run_list = [
       "recipe[sstk-wp::default]"
     ]
