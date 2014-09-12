@@ -25,6 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # a chef-solo run in the VM.
   config.vm.provision :chef_solo do |chef|
     chef.data_bags_path = "data_bags"
+    chef.encrypted_data_bag_secret_key_path = "~/encrypted_data_bag_secret"
     chef.run_list = [
       "recipe[sstk-wp::default]"
     ]

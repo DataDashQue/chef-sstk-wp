@@ -21,6 +21,7 @@ root = File.absolute_path(File.dirname(__FILE__))
 file_cache_path root
 cookbook_path root + '/cookbooks'
 data_bag_path cookbook_path + '/sstk-wp/data_bags'
+encrypted_data_bag_secret "/tmp/wp_creds.key"
 EOF
 
 (cd /root/cookbooks && rm -rf chef-sstk-wp && git clone $SSTK_WP_COOKBOOK_URL && chef-sstk-wp/utils/run_chef.sh)

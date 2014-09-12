@@ -1,6 +1,1 @@
-{
-	"id": "wp_creds",
-	"dbname": "shutterwordpress",
-	"username": "sstkdbadmin",
-	"password": "C>+{9&TYuVme3HHxLpxa+R"
-}
+{"id":"wp_creds","dbname":{"encrypted_data":"kEMP1ezVbkQQWszLBB9lj9dXG++c6HGE2z+74mC9zTm5okvUPsTFYP5X9kOl\nuwu1\n","iv":"sDpzT7Yq5ezl0aDGzpbpdQ==\n","version":1,"cipher":"aes-256-cbc"},"username":{"encrypted_data":"Vmdwj+3YVx+wlRJq0qfepZTazznvyWXUdxyGZV66XZI=\n","iv":"D2sClbg4xjM61YxYVxQ6mA==\n","version":1,"cipher":"aes-256-cbc"},"password":{"encrypted_data":"xgYYZ/gQ3QEU3cVo9y83MFvFfEE2Wva6LETycw1t+pSNPjxBBzhE81pIKijD\nUPlx\n","iv":"YVOwPigDi2OfXlbuKNo4Tw==\n","version":1,"cipher":"aes-256-cbc"}}
