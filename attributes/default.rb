@@ -1,5 +1,5 @@
 # mysql attributes
-default['mysql']['server_root_password'] = 'marketplace34'
+default['mysql']['secretpath'] = '/tmp/wp_creds.key'
 
 # nginx attributes
 default['nginx']['version'] = '1.6.1'
