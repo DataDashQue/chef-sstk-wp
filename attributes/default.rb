@@ -29,5 +29,3 @@ default['wordpress']['fpm_port'] = '9001'
 
 # postfix attributes
 default['postfix']['main']['inet_interfaces'] = 'loopback-only'
-    # probably need to change this!
-default['postfix']['main']['relayhost'] = 'localhost'
