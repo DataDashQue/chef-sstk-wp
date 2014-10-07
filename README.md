@@ -21,7 +21,7 @@ This cookbook ships with a Vagrantfile which uses chef-solo as a
 provisioner to configure the machine. Simply do a `vagrant up` from
 the base directory of this cookbook. The usual prerequisites for using
 Vagrant apply - i.e. working local install of VirtualBox. You also need
-Berkshelf installed locally.
+Berkshelf installed locally. I recommend using ChefDK: `https://downloads.getchef.com/chef-dk/`.
 
 License and Authors
 -------------------
