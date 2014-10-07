@@ -8,7 +8,9 @@
 #
 hostname = "blog.shutterstock.com"
 
-package "git"
+%w( git telnet nc ).each do |pkg|
+  package pkg
+end
 
 include_recipe "build-essential"
 include_recipe "env_vars"
