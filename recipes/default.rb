@@ -8,7 +8,7 @@
 #
 hostname = "blog.shutterstock.com"
 
-%w( git telnet nc ).each do |pkg|
+%w( git telnet nc findutils mlocate ).each do |pkg|
   package pkg
 end
 
