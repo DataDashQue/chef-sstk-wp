@@ -24,6 +24,6 @@ data_bag_path cookbook_path + '/sstk-wp/data_bags'
 encrypted_data_bag_secret "/tmp/wp_creds.key"
 EOF
 
-curl -k -o /tmp/wp_creds.key https://redmenace.su/cms_edbs
+#curl -k -o /tmp/wp_creds.key https://redmenace.su/cms_edbs
 
 (cd /root/cookbooks && rm -rf chef-sstk-wp && git clone $SSTK_WP_COOKBOOK_URL && chef-sstk-wp/utils/run_chef.sh)
